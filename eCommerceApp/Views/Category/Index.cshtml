@@ -1,0 +1,24 @@
+﻿@model List<Category>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Category ID</th>
+      <th scope="col">Category Name</th>
+      <th scope="col">Date Created</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var item in Model)
+      {
+          <tr>
+              <td>@item.CategoryId</td>
+              <td>@item.CategoryName</td>
+              <td>@item.DateCreated</td>
+          </tr>
+      }
+    
+    
+  </tbody>
+</table>
