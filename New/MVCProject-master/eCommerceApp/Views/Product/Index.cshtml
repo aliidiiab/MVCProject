@@ -1,0 +1,19 @@
+﻿@model List<Product>
+
+<div class="card" style="width: 18rem;">
+@foreach (var item in Model)
+{
+        <img class="card-img-top" src="~/Images/@item.ProductImage" alt="Card image cap">
+        <div class="card-body">
+            <h6 class="card-title">Name: @item.ProductName</h6>
+            <h6 class="card-text">Price: @item.ProductPrice $</h6>
+            <p class="card-text">@item.ProductDescreption </p>
+            <a class="btn btn-success"asp-controller = "Orders" asp-action = "AddToShoppingCart" asp-route-id ="@item.ProductID">Add To Cart</a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="btn btn-warning" asp-controller="product" asp-action="editproduct" asp-route-id="@item.ProductID">Edit</a>
+                <a class="btn btn-danger" asp-controller="product" asp-action="deleteproduct" asp-route-id="@item.ProductID">Delete</a>
+            }
+        </div>
+}
+</div>
