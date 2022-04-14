@@ -11,14 +11,12 @@
         <form method="post" asp-action="save_addCategory"asp-controller="category">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="CategoryName" class="control-label"></label>
-                <input asp-for="CategoryName" class="form-control" />
-                <span asp-validation-for="CategoryName" class="text-danger"></span>
+                <label asp-for="category_name" class="control-label"></label>
+                <input asp-for="category_name" class="form-control" />
+                <span asp-validation-for="category_name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DateCreated" class="control-label"></label>
-                <input asp-for="DateCreated" class="form-control" />
-                <span asp-validation-for="DateCreated" class="text-danger"></span>
+                <img alter="cat-img"/>
             </div>
             <div class="form-group">
                 <input type="submit" value="Add Category" class="btn btn-dark" />

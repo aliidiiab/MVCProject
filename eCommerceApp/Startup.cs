@@ -32,8 +32,9 @@ namespace eCommerceApp
                 builder.UseSqlServer(Configuration.GetConnectionString("DB"));
             });
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<eCommerceAppEntities>();
-            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>(); 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IReviewRepository, ReviewRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

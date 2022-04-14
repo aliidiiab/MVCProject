@@ -13,7 +13,7 @@ namespace eCommerceApp.Repos
         }
         public Category getbyID(int id)
         {
-            return context.Categories.FirstOrDefault(s => s.CategoryId == id);
+            return context.Categories.FirstOrDefault(s => s.id == id);
         }
         public List<Category> getallCategories()
         {
@@ -29,8 +29,8 @@ namespace eCommerceApp.Repos
             Category orgcategory = getbyID(id);
             if (orgcategory != null)
             {
-                orgcategory.CategoryName = _category.CategoryName;
-                orgcategory.DateCreated = _category.DateCreated;
+                orgcategory.category_name = _category.category_name;
+                orgcategory.category_image = _category.category_image;
                 return context.SaveChanges();
             }
             return 0;

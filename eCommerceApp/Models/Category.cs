@@ -6,10 +6,12 @@ namespace eCommerceApp.Models
     {
         [Required]
         [Key]
-        public int CategoryId { get; set; }
+        public int id { get; set; }
         [Required]
         [MaxLength(50)]
-        public string CategoryName { get; set; }
-        public System.DateTime DateCreated { get; set; }
+        public string category_name{ get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string category_image{ get; set; }
     }
 }

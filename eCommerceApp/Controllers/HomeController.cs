@@ -1,4 +1,5 @@
 ﻿using eCommerceApp.Models;
+using eCommerceApp.Repos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -7,22 +8,32 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using eCommerceApp.ViewModels;
 
 namespace eCommerceApp.Controllers
 {
     //[Authorize]
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        IProductRepository productContext;
+        ICategoryRepository categorycontext;
+        IReviewRepository reviewscontext;
+
+        public HomeController(IProductRepository _productcontext, ICategoryRepository _categorycontext, IReviewRepository _reviewscontext)
         {
-            _logger = logger;
-        }
-
+            productContext = _productcontext;
+            categorycontext = _categorycontext;
+            reviewscontext = _reviewscontext;
+        } 
+        [HttpGet]
         public IActionResult Index()
-        {
-            return View();
+        { 
+            HomeViewModel HomeData = new();
+            HomeData.Reviews = reviewscontext.GetAllReviews();
+            HomeData.Categories = categorycontext.getallCategories();
+
+            return View(HomeData);
         }
 
         public IActionResult Privacy()
